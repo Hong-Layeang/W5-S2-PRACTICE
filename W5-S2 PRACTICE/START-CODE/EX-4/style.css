@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #5a5a5a;
+}
+
+@font-face {
+    font-family: 'nucleo';
+    src: url('assets/fonts/nucleo.ttf');
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'nucleo', sans-serif;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 100vh;
+}
+
+.side-menu {
+    grid-column: 1 / 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand-name {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.logo-text {
+    margin-left: 10px;
+}
+
+hr {
+    border: 0.5px solid silver;
+    width: 80%;
+    margin: 20px 0;
+}
+
+.side-lists {
+    font-size: 0.7em;
+    list-style: none;
+    text-align: left;
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+.side-lists:hover,
+.side-lists.active {
+    background-color: white;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.account {
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.side-icons {
+    margin-right: 0.5em;
+    border-radius: 5px;
+    padding: 7px;
+    font-size: 1em;
+    background-color: white;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.fa-store {
+    color: white;
+    background-color: rgb(206, 0, 206);
+}
+
+.side-lists:hover .side-icons {
+    box-shadow: none;
+    background-color: rgb(206, 0, 206);
+    color: white;
+}
+
+.navbar {
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.nav-left ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+.nav-lists {
+    font-size: 0.9em;
+}
+
+.nav-lists:hover {
+    cursor: pointer;
+    color: #1e1e1e;
+}
+
+.nav-lists.active {
+    font-weight: bold;
+}
+
+.nav-lists::after {
+    content: "/";
+    margin-left: 0.5em;
+}
+
+.nav-lists:last-child::after {
+    content: "";
+}
+
+.nav-right {
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.right-icons:hover {
+    color: rgb(206, 0, 206);
+}
+
+.search-bar {
+    border: none;
+}
+
+.main-content {
+    grid-column: 2 / 3;
+    padding: 20px;
+}
+
+.dashboard-content {
+    padding: 20px;
+}
+
+.stats-row {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-change {
+    display: block;
+    margin-top: 10px;
+}
+
+.stat-change.positive {
+    color: green;
+}
+
+.stat-change.negative {
+    color: red;
+}
+
+/* Dashboard main cards */
+.dashboard-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.info-card {
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-card.rocket {
+    background: #f0f0ff;
+}
+
+.chart-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.chart-card {
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.read-more {
+    margin-top: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: 150px 1fr;
+    }
+
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-main {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    .side-menu {
+        display: none;
+    }
+
+    .navbar {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-left ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .nav-right {
+        gap: 10px;
+    }
+
+    .stats-row {
+        grid-template-columns: 1fr;
+    }
+}
